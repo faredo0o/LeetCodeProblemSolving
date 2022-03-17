@@ -21,12 +21,7 @@ public class LetterCombinationsOfPhoneNumber {
         numList.put('9', "wxyz");
         List<String> result=new ArrayList<>();
 
-        StringBuilder sb=new StringBuilder();
 
-      for(char c:digits.toCharArray()){
-        sb.append(numList.get(c));
-      }
-        System.out.println(sb);
         return result;
     }
 }
