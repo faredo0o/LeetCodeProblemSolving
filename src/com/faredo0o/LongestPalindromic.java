@@ -1,9 +1,6 @@
 package com.faredo0o;
 
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class LongestPalindromic {
     public static void main(String[] args) {
 
@@ -18,13 +15,15 @@ public class LongestPalindromic {
 
         String pal="";
         int windowSize = 1;
+   if(isPal(s)) return s;
         for (int i = 0; i < s.length(); i++) {
-            for (int j = i+windowSize; j <= s.length(); j++) {
+            for (int j = i + windowSize; j <= s.length(); j++) {
+
                 String sub = s.substring(i, j);
                 if (isPal(sub)) {
                     pal = pal.length() > windowSize ? pal : sub;
-
                     windowSize = pal.length();
+
                 }
             }
 
@@ -35,15 +34,14 @@ public class LongestPalindromic {
 
         if (s.length() <= 1) return true;
 
-            if (s.charAt(0) == s.charAt(s.length() - 1)) {
-
-                boolean ispal=isPal(s.substring(1, s.length() - 1));
-
-                return ispal;
+        int min=0;
+        int max=s.length()-1;
+                while (min < max) {
+                    if (s.charAt(min) != s.charAt(max)) return false;
+                    min++;
+                    max--;
             }
-
-            return false;
+            return true;
     }
-
 
 }
