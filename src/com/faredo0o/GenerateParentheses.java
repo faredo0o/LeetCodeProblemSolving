@@ -12,7 +12,25 @@ public class GenerateParentheses {
     }
 
     public static List<String> generateParentheses(int n) {
-        return null;
+       List<String> solution=new ArrayList<>();
+
+       generate(solution,"",0,0,n);
+       return solution;
+    }
+    public static void generate(List<String> solution,String current,int open,int close,int n){
+        if(current.length()==n*2) {
+            solution.add(current);
+
+            return;
+        }
+        if(open<n){
+
+            generate(solution,current+"(",open+1,close,n);
+        }
+        if(close<open){
+
+            generate(solution,current+")",open,close+1,n);
+        }
     }
 }
 // 123456
